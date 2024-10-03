@@ -7,9 +7,10 @@ import { supabase } from "lib/utils/supabase";
 interface DeveloperPackFormProps {
   providerToken?: string | null;
   refreshUser: () => void;
+  id: string;
 }
 
-const DeveloperPackForm = ({ refreshUser, providerToken }: DeveloperPackFormProps) => {
+const DeveloperPackForm = ({ refreshUser, providerToken, id }: DeveloperPackFormProps) => {
   const [updating, setUpdating] = useState(false);
   const { toast } = useToast();
 
@@ -53,9 +54,10 @@ const DeveloperPackForm = ({ refreshUser, providerToken }: DeveloperPackFormProp
   return (
     <div className="flex flex-col gap-6">
       <Button
+        id={id}
         onClick={handeVerification}
         variant="primary"
-        className="px-4 py-2 w-max bg-light-slate-4 "
+        className="px-4 py-2 w-max bg-light-slate-4"
         disabled={updating}
       >
         Verify Account

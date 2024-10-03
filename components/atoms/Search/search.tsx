@@ -24,6 +24,7 @@ interface SearchProps {
   onSelect?: (value: string) => void;
   isLoading?: boolean;
   isDisabled?: boolean;
+  id?: string;
 }
 
 const suggestionsStyle = {
@@ -45,6 +46,7 @@ const Search = ({
   isLoading,
   onSelect,
   isDisabled,
+  id,
 }: SearchProps): JSX.Element => {
   const [cursor, setCursor] = useState(-1);
   const [search, setSearch] = useState(value);
@@ -124,7 +126,7 @@ const Search = ({
         name={name}
         value={search}
         type="search"
-        id={name}
+        id={id}
         onChange={handleChange}
         onKeyUp={(e) => {
           if (e.code === "Enter") {
